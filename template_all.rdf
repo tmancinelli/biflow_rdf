@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+   <!ENTITY rdf     "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+   <!ENTITY rdfs    "http://www.w3.org/2000/01/rdf-schema#" >
+   <!ENTITY biflow  "http://tmancinelli.github.io/biflow/0.1#" >
+   <!ENTITY dc      "http://purl.org/dc/elements/1.1/" >
+   <!ENTITY foaf    "http://xmlns.com/foaf/0.1/" >
+   <!ENTITY owl     "http://www.w3.org/2002/07/owl#" >
+   <!ENTITY base    "https://w3id.org/bibma/" >
+   <!ENTITY current "http://erlangen-crm.org/current/">
+   <!ENTITY efrbroo "http://erlangen-crm.org/efrbroo/" >
+   <!ENTITY xsd     "http://www.w3.org/2001/XMLSchema#" >
+]>
+
+<rdf:RDF
+   xmlns:rdf="&rdf;"
+   xmlns:rdfs="&rdfs;"
+   xmlns:biflow="&biflow;"
+   xmlns:dc="&dc;"
+   xmlns:foaf="&foaf;"
+   xmlns:owl ="&owl;"
+   xmlns:current ="&current;"
+   xmlns:efrbroo ="&efrbroo;"
+   xmlns:base = "&base;"
+   xmlns:xsd ="&xsd;"
+>
+
+  <owl:Ontology rdf:about="&biflow;">
+    <rdfs:label rdf:datatype="&xsd;string">BiFlow ontology</rdfs:label>
+    <dc:creator>Tiziana Mancinelli</dc:creator>
+    <dc:rights>TBD</dc:rights>
+    <dc:title>TBD</dc:title>
+    <dc:format>application/dc+xml</dc:format>
+    <foaf:maker rdf:nodeID="tiziana_mancinelli" />
+    <rdf:type rdf:resource="&owl;Ontology" />
+    <rdfs:comment rdf:datatype="&xsd;string">TBD</rdfs:comment>
+  </owl:Ontology>
+
+  <foaf:Person rdf:nodeID="tiziana_mancinelli">
+    <foaf:name>Tiziana Mancinelli</foaf:name>
+  </foaf:Person>
+
+  <owl:Class rdf:about="&biflow;Date">
+    <rdfs:label xml:lang="en">Date</rdfs:label>
+    <rdfs:comment xml:lang="en">This is the rappresentation of a biflow date</rdfs:comment>
+    <owl:equivalentClass rdf:resource="&current;E50_Date" />
+  </owl:Class>
+
+  <owl:Class rdf:about="&biflow;Identifier">
+    <rdfs:label xml:lang="en">Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">This is the rappresentation of a Biflow identifier</rdfs:comment>
+    <owl:equivalentClass rdf:resource="&efrbroo;F13_Identifier" />
+  </owl:Class>
+
+{biflow.classes_and_properties}
+
+</rdf:RDF>

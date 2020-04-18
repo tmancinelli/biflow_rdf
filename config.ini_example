@@ -1,0 +1,30 @@
+[general]
+; where the files of the model are located.
+path = ../biflow_API/api/src/Entity/
+; the template for the whole ontology
+template_all = template_all.rdf
+; the template for a single entry
+template_single = template_single.rdf
+; The API
+api = https://mizar.unive.it/catalogo_biflow/api/public/api
+; The URL for a single entry (work, manuscript, etc...)
+rdfuri = https://mizar.unive.it/catalogo_biflow/api/public/rdf
+
+[classes]
+; To be fast, here the list of class name -> file name
+manuscripts = Manuscript.php
+bibliographies = Bibliography.php
+check_statuses = CheckStatus.php
+editors = Editor.php
+expressions = Expression.php
+genres = Genre.php
+languages = Language.php
+libraries = Library.php
+localisations = Localisation.php
+materials = Material.php
+nicknames = Nickname.php
+people = Person.php
+ruled_line_techniques = RuledLineTechnique.php
+textual_typologies = TextualTypology.php
+typologies = Typology.php
+works = Work.php
