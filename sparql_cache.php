@@ -43,7 +43,7 @@ fclose($f);
 
 function addItem(&$array, $config, $item, $classData, $class) {
   $url = "<" . $config["general"]["rdfuri"] . "/" . $class . "/" . $item["id"] . ">";
-  $array[] = "$url a biflow:" . $classData["name"] . ".";
+  $array[] = "$url a biflow:" . $classData["name"] . " .";
 
   foreach($classData["properties"] as $name => $property) {
     if (!isset($item[$name]) || !$item[$name]) {
