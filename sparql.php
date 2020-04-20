@@ -1,8 +1,6 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
-$data = file_get_contents(".sparql_cache");
-header("Content-Type: text/html");
+header("Content-Type: application/json");
 
-$data = unserialize($data);
-echo json_encode($data);
+readfile(".sparql_cache");

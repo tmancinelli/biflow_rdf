@@ -28,23 +28,22 @@ foreach($config["classes"] as $class => $value) {
   # api-platform)
   $classData = getClassData("App\Entity\\" . $className);
 
-  foreach($json as $item) {
-    $content = "PREFIX biflow: <http://tmancinelli.github.io/biflow/0.1#>\n";
-    $content .= "INSERT DATA {\n";
-    $content .= addItem($config, $item, $classData, $class);
-    $content .= "}\n";
+  if ($classData == null) {
+    continue;
+  }
 
-    $array[] = $content;
+  foreach($json as $item) {
+    addItem($array, $config, $item, $classData, $class);
   }
 }
 
 $f = fopen(".sparql_cache", "w") or die("Unable to open file!");
-fwrite($f, serialize($array));
+fwrite($f, json_encode($array));
 fclose($f);
 
-function addItem($config, $item, $classData, $class) {
+function addItem(&$array, $config, $item, $classData, $class) {
   $url = "<" . $config["general"]["rdfuri"] . "/" . $class . "/" . $item["id"] . ">";
-  $content = " $url a biflow:" . $classData["name"] . " .\n";
+  $array[] = "$url a biflow:" . $classData["name"] . ".";
 
   foreach($classData["properties"] as $name => $property) {
     if (!isset($item[$name]) || !$item[$name]) {
@@ -53,14 +52,12 @@ function addItem($config, $item, $classData, $class) {
 
     if (is_array($item[$name])) {
       foreach($item[$name] as $value) {
-        $content .= addProperty($url, $config, $value, $property);
+        $array[] = addProperty($url, $config, $value, $property);
       }
     } else {
-      $content .= addProperty($url, $config, $item[$name], $property);
+      $array[] = addProperty($url, $config, $item[$name], $property);
     }
   }
-
-  return $content;
 }
 
 # This function adds a single RDF property in the RDF content.
@@ -77,7 +74,7 @@ function addProperty($url, $config, $value, $property) {
     $class = prev($parts);
 
     # Let's compose the RDF property:
-    return "  $url biflow:" . $property["name"] . " <" . $config["general"]["rdfuri"]. "/" . $class . "/" . $id . "> .\n";
+    return "$url biflow:" . $property["name"] . " <" . $config["general"]["rdfuri"]. "/" . $class . "/" . $id . "> .";
   }
 
   # If the property has an "include", fetch the data and print it.
@@ -101,7 +98,7 @@ function addProperty($url, $config, $value, $property) {
   }
 
   # Let's compose the RDF property with the 'string' value.
-  return "  $url biflow:" . $property["name"] . " \"" . htmlspecialchars($value, ENT_XML1 | ENT_COMPAT, 'UTF-8') . "\" .\n";
+  return "$url biflow:" . $property["name"] . " \"" . htmlspecialchars($value, ENT_XML1 | ENT_COMPAT, 'UTF-8') . "\" .";
 }
 
 function getClassData($class) {
