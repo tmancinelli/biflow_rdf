@@ -29,12 +29,15 @@
   <owl:Ontology rdf:about="&biflow;">
     <rdfs:label rdf:datatype="&xsd;string">BiFlow ontology</rdfs:label>
     <dc:creator>Tiziana Mancinelli</dc:creator>
-    <dc:rights>TBD</dc:rights>
-    <dc:title>TBD</dc:title>
+    <dc:rights xml:lang="en">This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/).</dc:rights>
+    <dc:title xml:lang="en">BiFlow ontology</dc:title>
     <dc:format>application/dc+xml</dc:format>
     <foaf:maker rdf:nodeID="tiziana_mancinelli" />
     <rdf:type rdf:resource="&owl;Ontology" />
-    <rdfs:comment rdf:datatype="&xsd;string">TBD</rdfs:comment>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+      The Biflow-Toscana Bilingue ontology is structured with classes and properties that import and extend other formal ontologies already in existence, such as eFRBRoo (), CIDOC CRM (Comité International pour la Documentation-Conceptual Reference Model), and Biblissima ontology. The theoretical assumptions and the following classes were also inspired by Peter Burke’s questions raised in “Cultures of Translations” and noted here in section three. The questions What?, Who?, and In what manner? were very helpful starting points for building a theoretical framework.
+The Biflow ontology maps out two main units of analysis that are clearly distinct from one another: firstly, the text with its linguistic and literary aspects (including language, genre, authorship, etc.); secondly, the material and historical characteristics of the manuscripts in which the texts are presented. Consequently, the core of the ontology is based on four main classes: Work, Expression, Manuscript, and Person.
+    </dc:description>
   </owl:Ontology>
 
   <foaf:Person rdf:nodeID="tiziana_mancinelli">
