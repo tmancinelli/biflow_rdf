@@ -3,7 +3,7 @@
 <!DOCTYPE rdf:RDF [
    <!ENTITY rdf     "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
    <!ENTITY rdfs    "http://www.w3.org/2000/01/rdf-schema#" >
-   <!ENTITY biflow  "http://tmancinelli.github.io/biflow/0.1#" >
+   <!ENTITY biflow  "http://mizar.unive.it/catalogo_biflow/rdf/biflow#" >
    <!ENTITY dc      "http://purl.org/dc/elements/1.1/" >
    <!ENTITY foaf    "http://xmlns.com/foaf/0.1/" >
    <!ENTITY owl     "http://www.w3.org/2002/07/owl#" >
