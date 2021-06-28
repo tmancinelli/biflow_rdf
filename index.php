@@ -130,6 +130,10 @@ function addProperty($config, $value, $property) {
     $value = $json[$property["include"][0]];
   }
 
+  if (isset($property["absolutename"])) {
+    return "    <" . $property["absolutename"][0] . " rdf:resource=\"" . $value . "\" />\n";
+  }
+
   # Let's compose the RDF property with the 'string' value.
   return "    <biflow:" . $property["name"] . ">" . htmlspecialchars($value, ENT_XML1 | ENT_COMPAT, 'UTF-8') . "</biflow:" . $property["name"] . ">\n";
 }
